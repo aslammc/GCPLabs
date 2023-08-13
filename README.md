@@ -31,7 +31,10 @@ Dataproc cluster creation : Change the values as per the quest
 
 gcloud dataproc clusters create cluster-af51 --region us-west1 --zone us-west1-a --master-machine-type e2-standard-2 --master-boot-disk-size 500 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-size 500 --num-secondary-workers 2 --secondary-worker-boot-disk-type --secondary-worker-boot-disk-size 0 --num-secondary-worker-local-ssds null --image-version 2.1-debian11 --secondary-worker-type preemptible --project ProjectID
 
-//Once created the cluster, go to the Dataproc cluster's details, then navigate to 'VM Instances'. SSH into the master server. If SSH is not enabled, wait for some time. Once you're connected to the master server, execute the following command (the same command will be provided in the quest): 'hdfs dfs -cp gs://cloud-training/gsp323/data.txt /data.txt##
+
+//Once created the cluster, go to the Dataproc cluster's details, then navigate to 'VM Instances'. SSH into the master server. If SSH is not enabled, wait for some time. Once you're connected to the master server, execute the following command (the same command will be provided in the quest):
+
+hdfs dfs -cp gs://cloud-training/gsp323/data.txt 
 
 Now submit the jobs as per the quest, change the values as per the quest
 
