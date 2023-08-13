@@ -1,4 +1,5 @@
-TASK:1
+####TASK:1#####
+
 Please follow these instructions carefully and replace the placeholder "ProjectID" with your actual GCP project ID wherever it appears in the document
 
 bq mk lab_980 //change the dataset name as per the quest
@@ -25,7 +26,7 @@ Data flow job : Please change the values as per the quest
 
 gcloud dataflow jobs run transform --gcs-location gs://dataflow-templates-us-west1/latest/GCS_Text_to_BigQuery --region us-west1 --worker-machine-type e2-standard-2 --staging-location gs://ProjectID-marking/temp --parameters javascriptTextTransformGcsPath=gs://cloud-training/gsp323/lab.js,JSONPath=gs://cloud-training/gsp323/lab.schema,javascriptTextTransformFunctionName=transform,outputTable=ProjectID:lab_980.customers_579,inputFilePattern=gs://cloud-training/gsp323/lab.csv,bigQueryLoadingTemporaryDirectory=gs://ProjectID-marking/bigquery_temp
 
-TASK:2
+#####TASK:2######
 Dataproc cluster creation : Change the values as per the quest
 
 gcloud dataproc clusters create cluster-af51 --region us-west1 --zone us-west1-a --master-machine-type e2-standard-2 --master-boot-disk-size 500 --num-workers 2 --worker-machine-type e2-standard-2 --worker-boot-disk-size 500 --num-secondary-workers 2 --secondary-worker-boot-disk-type --secondary-worker-boot-disk-size 0 --num-secondary-worker-local-ssds null --image-version 2.1-debian11 --secondary-worker-type preemptible --project ProjectID
@@ -41,10 +42,10 @@ gcloud dataproc jobs submit spark
 --class=org.apache.spark.examples.SparkPageRank
 --jars=file:///usr/lib/spark/examples/jars/spark-examples.jar
 --max-failures-per-hour=1
---
-/data.txt
+--/data.txt
 
-TASK:3
+######TASK:3######
+
 Run the following command in cloud shell to create an API key with a specific display name (replace "test" with your desired display name)
 
 gcloud beta services api-keys create --display-name=test
@@ -66,7 +67,7 @@ Now copy the output to GCS bucket // Please change the GCS bucket name as per th
 
 gsutil cp result.json gs://ProjectID-marking/task3-gcs-994.result
 
-TASK:4
+#####TASK:4#####
 Run the below command in cloud shell export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value core/project) gcloud iam service-accounts create my-natlang-sa --display-name "my natural language service account"
 
 gcloud iam service-accounts keys create ~/key.json
