@@ -71,21 +71,30 @@ Now copy the output to GCS bucket // Please change the GCS bucket name as per th
 gsutil cp result.json gs://ProjectID-marking/task3-gcs-994.result
 
 #####TASK:4#####
+
+
 Run the below command in cloud shell 
+
 export GOOGLE_CLOUD_PROJECT=$(gcloud config get-value core/project) 
+
 gcloud iam service-accounts create my-natlang-sa --display-name "my natural language service account"
 
 
 gcloud iam service-accounts keys create ~/key.json
 --iam-account my-natlang-sa@${GOOGLE_CLOUD_PROJECT}.iam.gserviceaccount.com
 
+
 //change the key.json file path based on the output export GOOGLE_APPLICATION_CREDENTIALS="/home/student_00_d2521eee482/key.json"
 
 //Change the content as per the quest
 
+
 gcloud ml language analyze-entities --content="Old Norse texts portray Odin as one-eyed and long-bearded, frequently wielding a spear named Gungnir and wearing a cloak and a broad hat'." > result.json 
 
+
+
 //verify result.json using cat command # 
+
 cat result.json 
 
 gsutil cp result.json gs://ProjectID-marking/task4-cnl-941.result
